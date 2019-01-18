@@ -1,0 +1,2 @@
+insert into clientes(nombre, apellido, email, created_at) values ('John','Porras','johnporrasr@gmail.com','2018-01-01')
+insert into clientes(nombre, apellido, email, created_at) values ('John','Porras','johnporrasr@hotmail.com','2018-01-01')

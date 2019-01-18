@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${titulo}">Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">@johnporrasr</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNav">
+	    <ul class="navbar-nav">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="@{/listar}">Clientes</a>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+
+	<div class="container">
+		<h1 th:text="${titulo}">Insert title here</h1>		
+		<hr>
+		<a th:href="@{/form}">Crear</a>
+		<table class="table table-striped">
+			<thead>
+			  <tr>
+			    <th>ID</th>
+			    <th>Nombre</th>
+			    <th>Apellido</th>
+			    <th>Email</th>
+			    <th>Fecha</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr th:each="c: ${clientes}">
+			    <td th:text="${c.id}"></td>
+			    <td th:text="${c.nombre}"></td>
+			    <td th:text="${c.apellido}"></td>
+			    <td th:text="${c.email}"></td>
+			    <td th:text="${c.createdAt}"></td>
+			  </tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	
+</body>
+</html>
