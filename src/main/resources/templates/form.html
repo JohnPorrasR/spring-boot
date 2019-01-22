@@ -17,7 +17,7 @@
 	        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="@{/listar}">Clientes</a>
+	        <a class="nav-link" th:href="@{/listar}">Clientes</a>
 	      </li>
 	    </ul>
 	  </div>
@@ -30,20 +30,29 @@
 			<table class="table table-striped">
 				  <tr>
 				    <th>Nombre</th>
-				    <th><input type="text" th:field="*{nombre}" class="form-control" /></th>
+				    <th>
+					    <input type="text" th:field="*{nombre}" class="form-control" />
+					    <small th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="form-text text-danger"></small>
+				    </th>
 				  </tr>
 				  <tr>
 				    <th>Apellido</th>
-				    <th><input type="text" th:field="*{apellido}" class="form-control" /></th>
+				    <th>
+					    <input type="text" th:field="*{apellido}" class="form-control" />
+					    <small th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}" class="form-text text-danger"></small>
+				    </th>
 				  </tr>
 				  <tr>
 				    <th>Email</th>
-				    <th><input type="text" th:field="*{email}" class="form-control" /></th>
+				    <th>
+					    <input type="text" th:field="*{email}" class="form-control" />
+					    <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="form-text text-danger"></small>
+				    </th>
 				  </tr>
 				  <tr>
 				    <th><input type="submit" value="Guardar" class="btn btn-primary" /></th>
 				  </tr>
-				  <input type="hidden" th:field="*{id}" />
+				  <input type="text" th:field="*{id}" />
 			</table>
 		</form>
 	</div>
